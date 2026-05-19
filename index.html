@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Trà Pha Chế CK Tea - Đậm Vị, Bền Hương, Không Hương Liệu</title>
+  <meta name="description" content="CK Tea cung cấp trà pha chế chuyên nghiệp cho quán trà sữa, cafe và thương hiệu đồ uống. 40 năm sản xuất chè tại Phú Thọ, 200ha vùng nguyên liệu, trà mộc không hương liệu, giá cạnh tranh tại vườn chè.">
+  <meta property="og:title" content="Trà Pha Chế CK Tea - Nguyên liệu trà cho quán trà sữa, cafe">
+  <meta property="og:description" content="Trà đen, Assam, trà xanh lài, ô long CK Tea. Đậm vị, bền hương, không hương liệu. Nhận mẫu thử và báo giá sỉ ngay.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#2F6B3F">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --bg: #F8F5EC;
+      --card: #FFFFFF;
+      --dark: #1F2A1D;
+      --primary: #2F6B3F;
+      --primary-hover: #245432;
+      --accent: #B8863B;
+      --accent-dark: #7A4A21;
+      --text: #1F2A1D;
+      --muted: #5F665A;
+      --border: #E2D8C5;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .heading-font {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .container-custom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #2F6B3F, #B8863B);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.65);
+      transition: all 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      background: white;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+      box-shadow: 0 18px 45px rgba(31, 42, 29, 0.09);
+    }
+
+    .hero-bg {
+      background:
+        radial-gradient(circle at 10% 20%, rgba(47, 107, 63, 0.15), transparent 32%),
+        radial-gradient(circle at 88% 10%, rgba(184, 134, 59, 0.18), transparent 30%),
+        linear-gradient(135deg, #F8F5EC 0%, #EFE5D0 100%);
+    }
+
+    .hero-visual-glow {
+      box-shadow: 0 30px 90px rgba(47, 107, 63, 0.25);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: all 0.75s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .nav-scrolled {
+      background: rgba(248, 245, 236, 0.98) !important;
+      box-shadow: 0 10px 35px rgba(31, 42, 29, 0.1);
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item[open] {
+      border-color: var(--primary);
+    }
+
+    .faq-item[open] .faq-icon {
+      transform: rotate(180deg);
+    }
+
+    .toast {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(15px);
+      transition: all 0.3s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    input:focus, select:focus, textarea:focus, button:focus, a:focus {
+      outline: 3px solid rgba(47, 107, 63, 0.22);
+      outline-offset: 2px;
+    }
+
+    @media (max-width: 767px) {
+      body {
+        padding-bottom: 82px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-[rgba(248,245,236,0.92)] backdrop-blur-md transition-all duration-300">
+    <nav class="container-custom flex items-center justify-between py-4" aria-label="Thanh điều hướng chính">
+      <a href="#" class="heading-font text-2xl font-extrabold" aria-label="CK Tea trang chủ">
+        <span class="text-[#2F6B3F]">CK</span> <span class="text-[#B8863B]">Tea</span>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-8 text-sm font-semibold text-[#1F2A1D]">
+        <a href="#products" class="hover:text-[#2F6B3F]">Sản phẩm</a>
+        <a href="#why" class="hover:text-[#2F6B3F]">Vì sao chọn CK Tea</a>
+        <a href="#recipe" class="hover:text-[#2F6B3F]">Công thức pha</a>
+        <a href="#dealer" class="hover:text-[#2F6B3F]">Bán sỉ / Đại lý</a>
+        <a href="#faq" class="hover:text-[#2F6B3F]">FAQ</a>
+        <a href="#contact" class="hover:text-[#2F6B3F]">Liên hệ</a>
+      </div>
+
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="#contact" class="btn btn-primary px-5 py-2.5 rounded-full font-bold" aria-label="Nhận mẫu thử trà CK Tea">Nhận mẫu thử</a>
+        <a href="#contact" class="btn btn-secondary px-5 py-2.5 rounded-full font-bold" aria-label="Báo giá sỉ qua Zalo">Zalo báo giá</a>
+      </div>
+
+      <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-xl border border-[#E2D8C5]" aria-label="Mở menu mobile">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </nav>
+
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-[#E2D8C5] bg-[#F8F5EC]">
+      <div class="container-custom py-4 flex flex-col gap-4 font-semibold">
+        <a href="#products" class="mobile-link">Sản phẩm</a>
+        <a href="#why" class="mobile-link">Vì sao chọn CK Tea</a>
+        <a href="#recipe" class="mobile-link">Công thức pha</a>
+        <a href="#dealer" class="mobile-link">Bán sỉ / Đại lý</a>
+        <a href="#faq" class="mobile-link">FAQ</a>
+        <a href="#contact" class="mobile-link">Liên hệ</a>
+        <a href="#contact" class="btn btn-primary text-center px-5 py-3 rounded-full font-bold">Nhận mẫu thử miễn phí</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero-bg pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
+      <div class="container-custom grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-center">
+        <div class="reveal">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/70 border border-[#E2D8C5] text-sm font-bold text-[#2F6B3F] mb-6">
+            <i data-lucide="leaf" class="w-4 h-4"></i>
+            40 năm sản xuất chè tại Phú Thọ
+          </div>
+
+          <h1 class="heading-font text-[34px] md:text-[52px] leading-tight font-extrabold tracking-tight mb-6">
+            TRÀ PHA CHẾ CK TEA<br>
+            <span class="gradient-text">ĐẬM VỊ – BỀN HƯƠNG</span><br>
+            KHÔNG HƯƠNG LIỆU
+          </h1>
+
+          <p class="text-lg text-[#5F665A] leading-8 max-w-2xl mb-8">
+            Nguyên liệu trà mộc chuyên dùng cho quán trà sữa, cafe và thương hiệu đồ uống.
+            CK Tea chủ động vùng nguyên liệu 200ha, sản xuất khép kín, hương vị ổn định,
+            giá cạnh tranh tại vườn chè.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-8">
+            <a href="#contact" class="btn btn-primary inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full font-extrabold" aria-label="Nhận mẫu thử miễn phí">
+              Nhận mẫu thử miễn phí
+              <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+            <a href="#contact" class="btn btn-secondary inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full font-extrabold" aria-label="Báo giá sỉ qua Zalo">
+              <i data-lucide="message-circle" class="w-5 h-5"></i>
+              Báo giá sỉ qua Zalo
+            </a>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="bg-white/75 border border-[#E2D8C5] rounded-2xl p-4 text-center">
+              <div class="font-extrabold text-[#2F6B3F]">200ha</div>
+              <div class="text-xs text-[#5F665A]">Vùng nguyên liệu</div>
+            </div>
+            <div class="bg-white/75 border border-[#E2D8C5] rounded-2xl p-4 text-center">
+              <div class="font-extrabold text-[#2F6B3F]">40 năm</div>
+              <div class="text-xs text-[#5F665A]">Kinh nghiệm</div>
+            </div>
+            <div class="bg-white/75 border border-[#E2D8C5] rounded-2xl p-4 text-center">
+              <div class="font-extrabold text-[#2F6B3F]">80 tấn</div>
+              <div class="text-xs text-[#5F665A]">Mỗi tháng</div>
+            </div>
+            <div class="bg-white/75 border border-[#E2D8C5] rounded-2xl p-4 text-center">
+              <div class="font-extrabold text-[#2F6B3F]">0</div>
+              <div class="text-xs text-[#5F665A]">Hương liệu</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal relative">
+          <div class="hero-visual-glow relative rounded-[28px] overflow-hidden border-8 border-white bg-white">
+            <img
+              src="assets/hero-tra-pha-che.jpg"
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=900&q=80';"
+              alt="Trà pha chế CK Tea dùng cho trà sữa và cafe"
+              class="w-full h-[520px] object-cover"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div>
+
+            <div class="absolute left-5 bottom-5 right-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div class="bg-white/90 backdrop-blur rounded-2xl px-4 py-3 text-center font-bold text-[#2F6B3F]">Trà mộc</div>
+              <div class="bg-white/90 backdrop-blur rounded-2xl px-4 py-3 text-center font-bold text-[#2F6B3F]">Xuất khẩu</div>
+              <div class="bg-white/90 backdrop-blur rounded-2xl px-4 py-3 text-center font-bold text-[#2F6B3F]">Đậm vị</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-custom mt-12 reveal">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/80 border border-[#E2D8C5] rounded-3xl p-5 shadow-sm">
+          <div class="text-center py-3">
+            <div class="counter heading-font text-3xl font-extrabold text-[#B8863B]" data-target="200">0</div>
+            <p class="text-sm text-[#5F665A]">ha vùng nguyên liệu Phú Thọ</p>
+          </div>
+          <div class="text-center py-3">
+            <div class="counter heading-font text-3xl font-extrabold text-[#B8863B]" data-target="40">0</div>
+            <p class="text-sm text-[#5F665A]">năm truyền thống sản xuất chè</p>
+          </div>
+          <div class="text-center py-3">
+            <div class="counter heading-font text-3xl font-extrabold text-[#B8863B]" data-target="80">0</div>
+            <p class="text-sm text-[#5F665A]">tấn/tháng năng lực cung ứng</p>
+          </div>
+          <div class="text-center py-3">
+            <div class="counter heading-font text-3xl font-extrabold text-[#B8863B]" data-target="0">0</div>
+            <p class="text-sm text-[#5F665A]">hương liệu, vị trà chân thực</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="py-16 md:py-24">
+      <div class="container-custom">
+        <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+          <h2 class="heading-font text-3xl md:text-[38px] font-extrabold mb-4">Quán của bạn đang gặp vấn đề với nguyên liệu trà?</h2>
+          <p class="text-[#5F665A] text-lg">Chất lượng trà quyết định hương vị ly đồ uống. Nếu trà không ổn định, menu rất khó giữ khách.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="card-hover reveal bg-white border border-[#E2D8C5] rounded-3xl p-7">
+            <i data-lucide="coffee" class="w-10 h-10 text-[#2F6B3F] mb-5"></i>
+            <h3 class="heading-font text-xl font-extrabold mb-3">Trà không đủ đậm vị</h3>
+            <p class="text-[#5F665A]">Pha trà sữa nhưng vị trà bị nhạt, dễ bị kem sữa và topping lấn át.</p>
+          </div>
+          <div class="card-hover reveal bg-white border border-[#E2D8C5] rounded-3xl p-7">
+            <i data-lucide="refresh-cw" class="w-10 h-10 text-[#2F6B3F] mb-5"></i>
+            <h3 class="heading-font text-xl font-extrabold mb-3">Mỗi lô một hương vị</h3>
+            <p class="text-[#5F665A]">Hôm nay pha ngon, hôm sau lại khác vị khiến chất lượng đồ uống thiếu ổn định.</p>
+          </div>
+          <div class="card-hover reveal bg-white border border-[#E2D8C5] rounded-3xl p-7">
+            <i data-lucide="alert-triangle" class="w-10 h-10 text-[#2F6B3F] mb-5"></i>
+            <h3 class="heading-font text-xl font-extrabold mb-3">Lo ngại hương liệu và tạp chất</h3>
+            <p class="text-[#5F665A]">Khách hàng ngày càng quan tâm nguyên liệu sạch, tự nhiên, không hương liệu.</p>
+          </div>
+          <div class="card-hover reveal bg-white border border-[#E2D8C5] rounded-3xl p-7">
+            <i data-lucide="wallet" class="w-10 h-10 text-[#2F6B3F] mb-5"></i>
+            <h3 class="heading-font text-xl font-extrabold mb-3">Giá đầu vào cao</h3>
+            <p class="text-[#5F665A]">Chi phí nguyên liệu tăng khiến biên lợi nhuận của quán bị giảm.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section class="py-16 md:py-24 bg-[#EFE5D0]/60">
+      <div class="container-custom grid lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal rounded-[28px] overflow-hidden shadow-xl border-8 border-white">
+          <img
+            src="assets/doi-che-cam-khe.jpg"
+            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1567922045116-2a00fae2ed03?auto=format&fit=crop&w=900&q=80';"
+            alt="Vùng nguyên liệu chè Cẩm Khê Phú Thọ"
+            loading="lazy"
+            class="w-full h-[520px] object-cover"
+          >
+        </div>
+
+        <div class="reveal">
+          <h2 class="heading-font text-3xl md:text-[38px] font-extrabold mb-5">
+            CK Tea giúp quán có nền trà ổn định, đậm vị và tối ưu chi phí
+          </h2>
+          <p class="text-[#5F665A] text-lg mb-8">
+            Chúng tôi trực tiếp trồng chè, sản xuất, kiểm soát chất lượng và phân phối.
+            Nhờ đó, CK Tea có thể cung cấp nguyên liệu trà pha chế với chất lượng ổn định và giá cạnh tranh.
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex gap-4 bg-white rounded-2xl p-5 border border-[#E2D8C5]">
+              <i data-lucide="leaf" class="w-8 h-8 text-[#2F6B3F] shrink-0"></i>
+              <div><h3 class="font-extrabold mb-1">Trà mộc, không hương liệu</h3><p class="text-[#5F665A]">Giữ vị trà chân thực, phù hợp xu hướng đồ uống tự nhiên.</p></div>
+            </div>
+            <div class="flex gap-4 bg-white rounded-2xl p-5 border border-[#E2D8C5]">
+              <i data-lucide="factory" class="w-8 h-8 text-[#2F6B3F] shrink-0"></i>
+              <div><h3 class="font-extrabold mb-1">Sản xuất khép kín</h3><p class="text-[#5F665A]">Chủ động từ vùng nguyên liệu đến thành phẩm.</p></div>
+            </div>
+            <div class="flex gap-4 bg-white rounded-2xl p-5 border border-[#E2D8C5]">
+              <i data-lucide="sliders-horizontal" class="w-8 h-8 text-[#2F6B3F] shrink-0"></i>
+              <div><h3 class="font-extrabold mb-1">Điều chỉnh theo yêu cầu</h3><p class="text-[#5F665A]">Có thể phối trộn để phù hợp gu vị, màu nước và menu từng thương hiệu.</p></div>
+            </div>
+            <div class="flex gap-4 bg-white rounded-2xl p-5 border border-[#E2D8C5]">
+              <i data-lucide="truck" class="w-8 h-8 text-[#2F6B3F] shrink-0"></i>
+              <div><h3 class="font-extrabold mb-1">Cung ứng ổn định</h3><p class="text-[#5F665A]">Năng lực sản xuất lớn, phù hợp quán lẻ, chuỗi đồ uống và đại lý.</p></div>
+            </div>
+            <div class="flex gap-4 bg-white rounded-2xl p-5 border border-[#E2D8C5]">
+              <i data-lucide="badge-check" class="w-8 h-8 text-[#2F6B3F] shrink-0"></i>
+              <div><h3 class="font-extrabold mb-1">Tiêu chuẩn xuất khẩu</h3><p class="text-[#5F665A]">Sản phẩm được sản xuất bởi doanh nghiệp có kinh nghiệm xuất khẩu chè.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="py-16 md:py-24">
+      <div class="container-custom">
+        <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+          <h2 class="heading-font text-3xl md:text-[38px] font-extrabold mb-4">Bộ trà pha chế CK Tea</h2>
+          <p class="text-[#5F665A] text-lg">Chọn nền trà phù hợp cho trà sữa, trà trái cây, kombucha, cold brew và macchiato.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <article class="card-hover reveal bg-white border border-[#E2D8C5] rounded-3xl overflow-hidden">
+            <img src="assets/tra-den-cktea.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=700&q=80';" alt="Trà đen CK Tea pha trà sữa" loading="lazy" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <span class="inline-block text-xs font-extrabold px-3 py-1 rounded-full bg-[#B8863B]/15 text-[#7A4A21] mb-4">Best seller cho trà sữa</span>
+              <i data-lucide="cup-soda" class="w-9 h-9 text-[#2F6B3F] mb-4"></i>
+              <h3 class="heading-font text-xl font-extrabold mb-3">Trà đen CK Tea</h3>
+              <p class="text-[#5F665A] mb-4">Màu nước hồng ngọc, vị trà rõ, chát dịu, phù hợp làm nền trà sữa truyền thống.</p>
+              <ul class="text-sm text-[#5F665A] space-y-2 mb-5">
+                <li>• Trà sữa truyền thống</li>
+                <li>• Trà sữa đường đen</li>
+                <li>• Trà sữa kem cheese</li>
+                <li>• Kombucha</li>
+              </ul>
+              <a href="#contact" class="font-extrabold text-[#2F6B3F]">Xem tư vấn pha chế →</a>
+            </div>
+          </article>
+
+          <article class="card-hover reveal bg-white border border-[#E2D8C5] rounded-3xl overflow-hidden">
+            <img src="assets/tra-assam.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=700&q=80';" alt="Trà Assam CK Tea đậm vị pha trà sữa" loading="lazy" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <span class="inline-block text-xs font-extrabold px-3 py-1 rounded-full bg-[#B8863B]/15 text-[#7A4A21] mb-4">Đậm vị mạnh</span>
+              <i data-lucide="flame" class="w-9 h-9 text-[#2F6B3F] mb-4"></i>
+              <h3 class="heading-font text-xl font-extrabold mb-3">Trà Assam CK Tea</h3>
+              <p class="text-[#5F665A] mb-4">Nền trà rõ, hậu vị mạnh, giữ vị tốt khi kết hợp với sữa, đá và topping.</p>
+              <ul class="text-sm text-[#5F665A] space-y-2 mb-5">
+                <li>• Trà sữa Assam</li>
+                <li>• Trà sữa nướng</li>
+                <li>• Trà sữa size lớn</li>
+                <li>• Menu cần vị trà nổi bật</li>
+              </ul>
+              <a href="#contact" class="font-extrabold text-[#2F6B3F]">Nhận báo giá Assam →</a>
+            </div>
+          </article>
+
+          <article class="card-hover reveal bg-white border border-[#E2D8C5] rounded-3xl overflow-hidden">
+            <img src="assets/tra-xanh-lai.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=700&q=80';" alt="Trà xanh lài CK Tea pha trà trái cây" loading="lazy" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <span class="inline-block text-xs font-extrabold px-3 py-1 rounded-full bg-[#B8863B]/15 text-[#7A4A21] mb-4">Hương lài thanh nhẹ</span>
+              <i data-lucide="flower-2" class="w-9 h-9 text-[#2F6B3F] mb-4"></i>
+              <h3 class="heading-font text-xl font-extrabold mb-3">Trà xanh lài CK Tea</h3>
+              <p class="text-[#5F665A] mb-4">Nền trà xanh lài thích hợp cho trà trái cây, trà chanh, trà đào và macchiato.</p>
+              <ul class="text-sm text-[#5F665A] space-y-2 mb-5">
+                <li>• Trà đào</li>
+                <li>• Trà chanh</li>
+                <li>• Trà lài macchiato</li>
+                <li>• Trà trái cây</li>
+              </ul>
+              <a href="#contact" class="font-extrabold text-[#2F6B3F]">Nhận mẫu trà lài →</a>
+            </div>
+          </article>
+
+          <article class="card-hover reveal bg-white border border-[#E2D8C5] rounded-3xl overflow-hidden">
+            <img src="assets/tra-olong.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1606377695906-236fdfcef767?auto=format&fit=crop&w=700&q=80';" alt="Trà ô long CK Tea thơm hậu sang vị" loading="lazy" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <span class="inline-block text-xs font-extrabold px-3 py-1 rounded-full bg-[#B8863B]/15 text-[#7A4A21] mb-4">Thơm hậu, sang vị</span>
+              <i data-lucide="sparkles" class="w-9 h-9 text-[#2F6B3F] mb-4"></i>
+              <h3 class="heading-font text-xl font-extrabold mb-3">Trà ô long CK Tea</h3>
+              <p class="text-[#5F665A] mb-4">Phù hợp các dòng đồ uống cao cấp, vị thơm hậu, cân bằng giữa trà, sữa và trái cây.</p>
+              <ul class="text-sm text-[#5F665A] space-y-2 mb-5">
+                <li>• Ô long sữa</li>
+                <li>• Ô long kem cheese</li>
+                <li>• Ô long trái cây</li>
+                <li>• Trà nguyên vị</li>
+              </ul>
+              <a href="#contact" class="font-extrabold text-[#2F6B3F]">Xem dòng ô long →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section id="why" class="py-16 md:py-24 bg-white">
+      <div class="container-custom">
+        <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+          <h2 class="heading-font text-3xl md:text-[38px] font-extrabold mb-4">Vì sao chủ quán và thương hiệu đồ uống chọn CK Tea?</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="card-hover reveal border border-[#E2D8C5] rounded-3xl p-7 bg-[#F8F5EC]">
+            <i data-lucide="map-pinned" class="w-10 h-10 text-[#B8863B] mb-5"></i>
+            <h3 class="heading-font text-xl font-extrabold mb-3">Vùng nguyên liệu 200ha</h3>
+            <p class="text-[#5F665A]">Chủ động kiểm soát chất lượng nguyên liệu đầu vào tại Phú Thọ.</p>
+          </div>
+          <div class="card-hover reveal border border-[#E2D8C5] rounded-3xl p-7 bg-[#F8F5EC]">
+            <i data-lucide="history" class="w-10 h-10 text-[#B8863B] mb-5"></i>
+            <h3 class="heading-font text-xl font-extrabold mb-3">40 năm kinh nghiệm</h3>
+            <p class="text-[#5F665A]">Truyền thống trồng và sản xuất chè từ nông trường chè Cẩm Khê.</p>
+          </div>
+          <div class="card-hover reveal border border-[#E2D8C5] rounded-3xl p-7 bg-[#F8F5EC]">
+            <i data-lucide="package-check" class="w-10 h-10 text-[#B8863B] mb-5"></i>
+            <h3 class="heading-font text-xl font-extrabold mb-3">Sản lượng 80 tấn/tháng</h3>
+            <p class="text-[#5F665A]">Đáp ứng tốt nhu cầu của quán, chuỗi đồ uống và đại lý.</p>
+          </div>
+          <div class="card-hover reveal border border-[#E2D8C5] rounded-3xl p-7 bg-[#F8F5EC]">
+            <i data-lucide="shield-check" class="w-10 h-10 text-[#B8863B] mb-5"></i>
+            <h3 class="heading-font text-xl font-extrabold mb-3">Không hương liệu</h3>
+            <p class="text-[#5F665A]">Trà mộc, hương vị chân thực, phù hợp xu hướng nguyên liệu sạch.</p>
+          </div>
+          <div class="card-hover reveal border border-[#E2D8C5] rounded-3xl p-7 bg-[#F8F5EC]">
+            <i data-lucide="hand-coins" class="w-10 h-10 text-[#B8863B] mb-5"></i>
+            <h3 class="heading-font text-xl font-extrabold mb-3">Giá cạnh tranh tại vườn</h3>
+            <p class="text-[#5F665A]">Cắt giảm khâu trung gian nhờ tự sản xuất và phân phối.</p>
+          </div>
+          <div class="card-hover reveal border border-[#E2D8C5] rounded-3xl p-7 bg-[#F8F5EC]">
+            <i data-lucide="settings" class="w-10 h-10 text-[#B8863B] mb-5"></i>
+            <h3 class="heading-font text-xl font-extrabold mb-3">Linh hoạt theo gu vị</h3>
+            <p class="text-[#5F665A]">Có thể tư vấn phối trà theo màu nước, độ đậm, hậu vị và menu thực tế.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECIPE -->
+    <section id="recipe" class="py-16 md:py-24">
+      <div class="container-custom grid lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <h2 class="heading-font text-3xl md:text-[38px] font-extrabold mb-4">Công thức test nhanh trà sữa bằng trà CK Tea</h2>
+          <p class="text-[#5F665A] text-lg mb-8">Cho khách hàng mới dễ hình dung cách test mẫu và đánh giá vị trà.</p>
+
+          <div class="bg-white border border-[#E2D8C5] rounded-3xl p-7 shadow-sm">
+            <h3 class="heading-font text-2xl font-extrabold mb-5">Công thức test nền trà sữa cơ bản</h3>
+
+            <div class="grid sm:grid-cols-2 gap-6 mb-6">
+              <div>
+                <h4 class="font-extrabold text-[#2F6B3F] mb-3">Cốt trà</h4>
+                <ul class="text-[#5F665A] space-y-2">
+                  <li>• 3g trà đen hoặc trà Assam CK Tea</li>
+                  <li>• 100ml nước sôi</li>
+                  <li>• Hãm 15 phút</li>
+                  <li>• Lọc lấy nước cốt trà</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-extrabold text-[#2F6B3F] mb-3">Pha trà sữa</h4>
+                <ul class="text-[#5F665A] space-y-2">
+                  <li>• 30ml nước cốt trà</li>
+                  <li>• 5g bột kem sữa</li>
+                  <li>• 5g đường</li>
+                  <li>• 10ml nước nóng</li>
+                  <li>• 50g đá hoặc điều chỉnh theo menu</li>
+                </ul>
+              </div>
+            </div>
+
+            <p class="text-[#5F665A] mb-6">
+              Hòa tan bột kem sữa trong nước nóng, thêm trà, đường, đá và lắc đều.
+              Có thể điều chỉnh định lượng theo gu vị từng quán.
+            </p>
+
+            <a href="#contact" class="btn btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-full font-extrabold">
+              Nhận mẫu để test công thức
+              <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal rounded-[28px] overflow-hidden border-8 border-white shadow-xl">
+          <img
+            src="assets/ly-tra-sua.jpg"
+            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=900&q=80';"
+            alt="Ly trà sữa pha từ trà CK Tea"
+            loading="lazy"
+            class="w-full h-[520px] object-cover"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- DEALER -->
+    <section id="dealer" class="py-16 md:py-24 bg-[#1F2A1D] text-white">
+      <div class="container-custom">
+        <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+          <h2 class="heading-font text-3xl md:text-[38px] font-extrabold mb-4">Bán sỉ trà pha chế & tuyển đại lý toàn quốc</h2>
+          <p class="text-[#D8D2C2] text-lg">CK Tea phù hợp cho quán trà sữa, cafe, chuỗi đồ uống, đại lý nguyên liệu pha chế và đối tác thương mại.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-10">
+          <div class="reveal bg-white/8 border border-white/15 rounded-3xl p-7">
+            <i data-lucide="store" class="w-10 h-10 text-[#B8863B] mb-5"></i>
+            <h3 class="heading-font text-xl font-extrabold mb-3">Chủ quán trà sữa / cafe</h3>
+            <p class="text-[#D8D2C2]">Cần nguyên liệu trà ổn định, dễ pha, giá tốt để tối ưu lợi nhuận.</p>
+          </div>
+          <div class="reveal bg-white/8 border border-white/15 rounded-3xl p-7">
+            <i data-lucide="building-2" class="w-10 h-10 text-[#B8863B] mb-5"></i>
+            <h3 class="heading-font text-xl font-extrabold mb-3">Chuỗi đồ uống</h3>
+            <p class="text-[#D8D2C2]">Cần nguồn cung lớn, đồng đều, có khả năng điều chỉnh theo tiêu chuẩn riêng.</p>
+          </div>
+          <div class="reveal bg-white/8 border border-white/15 rounded-3xl p-7">
+            <i data-lucide="users" class="w-10 h-10 text-[#B8863B] mb-5"></i>
+            <h3 class="heading-font text-xl font-extrabold mb-3">Đại lý phân phối</h3>
+            <p class="text-[#D8D2C2]">Tìm sản phẩm trà pha chế có thương hiệu, chiết khấu tốt, dễ bán.</p>
+          </div>
+        </div>
+
+        <div class="reveal flex flex-col sm:flex-row justify-center gap-4 text-center">
+          <a href="#contact" class="btn bg-[#B8863B] hover:bg-[#7A4A21] text-white px-7 py-4 rounded-full font-extrabold">Nhận bảng giá sỉ</a>
+          <a href="#contact" class="btn border border-white/30 hover:bg-white/10 px-7 py-4 rounded-full font-extrabold">Đăng ký làm đại lý</a>
+        </div>
+
+        <p class="reveal text-center text-[#D8D2C2] mt-6">Có chính sách chiết khấu và hàng tặng kích cầu cho đại lý.</p>
+      </div>
+    </section>
+
+    <!-- COMPANY PROOF -->
+    <section class="py-16 md:py-24">
+      <div class="container-custom">
+        <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+          <h2 class="heading-font text-3xl md:text-[38px] font-extrabold mb-4">CK Tea - Từ vùng chè Phú Thọ đến ly đồ uống của khách hàng</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div class="reveal bg-white border border-[#E2D8C5] rounded-3xl p-8">
+            <h3 class="heading-font text-2xl font-extrabold mb-6">Nền tảng sản xuất đáng tin cậy</h3>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="p-5 rounded-2xl bg-[#F8F5EC]"><strong>Công ty</strong><br><span class="text-[#5F665A]">TNHH Chè Cẩm Khê</span></div>
+              <div class="p-5 rounded-2xl bg-[#F8F5EC]"><strong>Thành lập</strong><br><span class="text-[#5F665A]">Năm 2010</span></div>
+              <div class="p-5 rounded-2xl bg-[#F8F5EC]"><strong>Tiền thân</strong><br><span class="text-[#5F665A]">Nông trường chè Cẩm Khê 1984</span></div>
+              <div class="p-5 rounded-2xl bg-[#F8F5EC]"><strong>Sản lượng</strong><br><span class="text-[#5F665A]">1.500 tấn chè khô/năm</span></div>
+            </div>
+            <blockquote class="mt-8 border-l-4 border-[#B8863B] pl-5 text-lg font-semibold italic">
+              “Chúng tôi không chỉ bán trà, chúng tôi cung cấp nền vị ổn định để quán của bạn giữ chân khách hàng.”
+            </blockquote>
+          </div>
+
+          <div class="reveal bg-white border border-[#E2D8C5] rounded-3xl p-8">
+            <h3 class="heading-font text-2xl font-extrabold mb-6">Hành trình phát triển</h3>
+            <div class="space-y-5">
+              <div class="flex gap-4"><div class="w-12 h-12 rounded-full bg-[#2F6B3F] text-white flex items-center justify-center font-extrabold shrink-0">84</div><div><strong>1984</strong><p class="text-[#5F665A]">Thành lập nông trường chè Cẩm Khê.</p></div></div>
+              <div class="flex gap-4"><div class="w-12 h-12 rounded-full bg-[#2F6B3F] text-white flex items-center justify-center font-extrabold shrink-0">93</div><div><strong>1993</strong><p class="text-[#5F665A]">Thành lập nhà máy chế biến chè Cẩm Khê.</p></div></div>
+              <div class="flex gap-4"><div class="w-12 h-12 rounded-full bg-[#2F6B3F] text-white flex items-center justify-center font-extrabold shrink-0">10</div><div><strong>2010</strong><p class="text-[#5F665A]">Thành lập Công ty TNHH Chè Cẩm Khê.</p></div></div>
+              <div class="flex gap-4"><div class="w-12 h-12 rounded-full bg-[#B8863B] text-white flex items-center justify-center font-extrabold shrink-0">✓</div><div><strong>Hiện nay</strong><p class="text-[#5F665A]">Cung cấp trà xuất khẩu và bộ trà pha chế cho thị trường nội địa.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section id="contact" class="py-16 md:py-24 bg-gradient-to-br from-[#F8F5EC] to-[#EFE5D0]">
+      <div class="container-custom">
+        <div class="text-center max-w-3xl mx-auto mb-10 reveal">
+          <h2 class="heading-font text-3xl md:text-[38px] font-extrabold mb-4">Nhận mẫu thử & báo giá trà pha chế CK Tea</h2>
+          <p class="text-[#5F665A] text-lg">Để lại thông tin, CK Tea sẽ tư vấn dòng trà phù hợp với menu của bạn.</p>
+        </div>
+
+        <form id="leadForm" class="reveal max-w-3xl mx-auto bg-white rounded-[28px] p-6 md:p-9 border border-[#E2D8C5] shadow-xl" novalidate>
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <label for="name" class="block font-bold mb-2">Họ và tên *</label>
+              <input id="name" name="name" type="text" class="w-full rounded-2xl border border-[#E2D8C5] px-4 py-3" placeholder="Nhập họ tên của bạn" aria-label="Họ và tên">
+              <p class="error text-red-600 text-sm mt-1 hidden">Vui lòng nhập họ tên.</p>
+            </div>
+
+            <div>
+              <label for="phone" class="block font-bold mb-2">Số điện thoại / Zalo *</label>
+              <input id="phone" name="phone" type="tel" class="w-full rounded-2xl border border-[#E2D8C5] px-4 py-3" placeholder="Ví dụ: 0917321955" aria-label="Số điện thoại hoặc Zalo">
+              <p class="error text-red-600 text-sm mt-1 hidden">Số điện thoại phải từ 9-11 số.</p>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <label for="customerType" class="block font-bold mb-2">Loại khách hàng</label>
+            <select id="customerType" name="customerType" class="w-full rounded-2xl border border-[#E2D8C5] px-4 py-3" aria-label="Loại khách hàng">
+              <option>Chủ quán trà sữa / cafe</option>
+              <option>Chuỗi đồ uống</option>
+              <option>Đại lý nguyên liệu pha chế</option>
+              <option>Mua dùng thử cá nhân</option>
+              <option>Khác</option>
+            </select>
+          </div>
+
+          <div class="mt-5">
+            <p class="block font-bold mb-3">Sản phẩm quan tâm *</p>
+            <div class="grid sm:grid-cols-2 gap-3" id="productGroup">
+              <label class="flex items-center gap-3 rounded-2xl border border-[#E2D8C5] p-4 cursor-pointer"><input type="checkbox" name="product" value="Trà đen CK Tea"> Trà đen CK Tea</label>
+              <label class="flex items-center gap-3 rounded-2xl border border-[#E2D8C5] p-4 cursor-pointer"><input type="checkbox" name="product" value="Trà Assam CK Tea"> Trà Assam CK Tea</label>
+              <label class="flex items-center gap-3 rounded-2xl border border-[#E2D8C5] p-4 cursor-pointer"><input type="checkbox" name="product" value="Trà xanh lài CK Tea"> Trà xanh lài CK Tea</label>
+              <label class="flex items-center gap-3 rounded-2xl border border-[#E2D8C5] p-4 cursor-pointer"><input type="checkbox" name="product" value="Trà ô long CK Tea"> Trà ô long CK Tea</label>
+              <label class="sm:col-span-2 flex items-center gap-3 rounded-2xl border border-[#E2D8C5] p-4 cursor-pointer"><input type="checkbox" name="product" value="Chưa biết, cần tư vấn"> Chưa biết, cần tư vấn</label>
+            </div>
+            <p id="productError" class="text-red-600 text-sm mt-1 hidden">Vui lòng chọn ít nhất 1 sản phẩm.</p>
+          </div>
+
+          <div class="mt-5">
+            <label for="note" class="block font-bold mb-2">Ghi chú nhu cầu</label>
+            <textarea id="note" name="note" rows="4" class="w-full rounded-2xl border border-[#E2D8C5] px-4 py-3" placeholder="Ví dụ: cần trà đậm vị để pha trà sữa, mua sỉ 5kg/tháng, cần test mẫu trước..." aria-label="Ghi chú nhu cầu"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-full mt-6 py-4 rounded-full font-extrabold text-lg" aria-label="Gửi thông tin nhận tư vấn">
+            Gửi thông tin nhận tư vấn
+          </button>
+
+          <div class="mt-6 grid sm:grid-cols-2 gap-4 text-center">
+            <a href="tel:0917321955" class="btn btn-secondary px-5 py-3 rounded-full font-bold">Hotline/Zalo: 0917 321 955</a>
+            <a href="#" class="btn btn-secondary px-5 py-3 rounded-full font-bold">Mua thử trên Shopee</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-16 md:py-24">
+      <div class="container-custom">
+        <div class="text-center max-w-3xl mx-auto mb-10 reveal">
+          <h2 class="heading-font text-3xl md:text-[38px] font-extrabold">Câu hỏi thường gặp</h2>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-4">
+          <details class="faq-item reveal bg-white border border-[#E2D8C5] rounded-2xl p-5">
+            <summary class="flex justify-between items-center font-extrabold cursor-pointer">Trà CK Tea có dùng hương liệu không?<i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition"></i></summary>
+            <p class="text-[#5F665A] mt-4">Bộ trà pha chế CK Tea là trà mộc, không hương liệu, giữ hương vị trà chân thực và tự nhiên.</p>
+          </details>
+
+          <details class="faq-item reveal bg-white border border-[#E2D8C5] rounded-2xl p-5">
+            <summary class="flex justify-between items-center font-extrabold cursor-pointer">Trà nào phù hợp để pha trà sữa?<i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition"></i></summary>
+            <p class="text-[#5F665A] mt-4">Trà đen CK Tea và trà Assam CK Tea phù hợp nhất cho trà sữa vì có màu nước đẹp, vị trà rõ và giữ vị tốt khi kết hợp với sữa.</p>
+          </details>
+
+          <details class="faq-item reveal bg-white border border-[#E2D8C5] rounded-2xl p-5">
+            <summary class="flex justify-between items-center font-extrabold cursor-pointer">Tôi mới mở quán, chưa biết chọn loại trà nào thì sao?<i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition"></i></summary>
+            <p class="text-[#5F665A] mt-4">Bạn có thể để lại thông tin menu dự kiến. CK Tea sẽ tư vấn dòng trà phù hợp với gu vị, mức giá và nhóm khách hàng của quán.</p>
+          </details>
+
+          <details class="faq-item reveal bg-white border border-[#E2D8C5] rounded-2xl p-5">
+            <summary class="flex justify-between items-center font-extrabold cursor-pointer">Có bán mẫu thử không?<i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition"></i></summary>
+            <p class="text-[#5F665A] mt-4">Có. Khách hàng có thể nhận mẫu thử hoặc mua túi nhỏ để test công thức trước khi nhập sỉ.</p>
+          </details>
+
+          <details class="faq-item reveal bg-white border border-[#E2D8C5] rounded-2xl p-5">
+            <summary class="flex justify-between items-center font-extrabold cursor-pointer">CK Tea có bán sỉ không?<i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition"></i></summary>
+            <p class="text-[#5F665A] mt-4">Có. CK Tea bán sỉ cho quán, chuỗi đồ uống, đại lý và đối tác thương mại trên toàn quốc.</p>
+          </details>
+
+          <details class="faq-item reveal bg-white border border-[#E2D8C5] rounded-2xl p-5">
+            <summary class="flex justify-between items-center font-extrabold cursor-pointer">Có hỗ trợ công thức pha chế không?<i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition"></i></summary>
+            <p class="text-[#5F665A] mt-4">Có. CK Tea có thể tư vấn cách test nền trà và gợi ý dòng trà phù hợp với menu thực tế.</p>
+          </details>
+
+          <details class="faq-item reveal bg-white border border-[#E2D8C5] rounded-2xl p-5">
+            <summary class="flex justify-between items-center font-extrabold cursor-pointer">Trà bảo quản như thế nào?<i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition"></i></summary>
+            <p class="text-[#5F665A] mt-4">Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp và luôn đóng kín bao trà sau khi sử dụng.</p>
+          </details>
+
+          <details class="faq-item reveal bg-white border border-[#E2D8C5] rounded-2xl p-5">
+            <summary class="flex justify-between items-center font-extrabold cursor-pointer">CK Tea có tuyển đại lý không?<i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition"></i></summary>
+            <p class="text-[#5F665A] mt-4">Có. CK Tea đang tuyển đại lý toàn quốc với chính sách chiết khấu và hàng tặng kích cầu hấp dẫn.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#1F2A1D] text-white py-12">
+    <div class="container-custom grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div>
+        <div class="heading-font text-2xl font-extrabold mb-4"><span class="text-white">CK</span> <span class="text-[#B8863B]">Tea</span></div>
+        <p class="text-[#D8D2C2]">Công ty TNHH Chè Cẩm Khê - 40 năm trồng và sản xuất chè tại Phú Thọ. Cung cấp trà xuất khẩu và trà pha chế chuyên nghiệp.</p>
+      </div>
+
+      <div>
+        <h3 class="font-extrabold mb-4">Sản phẩm</h3>
+        <ul class="space-y-2 text-[#D8D2C2]">
+          <li>Trà đen CK Tea</li>
+          <li>Trà Assam CK Tea</li>
+          <li>Trà xanh lài CK Tea</li>
+          <li>Trà ô long CK Tea</li>
+          <li>Chè đen CTC</li>
+          <li>Chè đen Orthodox</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-extrabold mb-4">Liên hệ</h3>
+        <ul class="space-y-3 text-[#D8D2C2]">
+          <li>📍 Xã Hương Lung, huyện Cẩm Khê, tỉnh Phú Thọ</li>
+          <li>📞 0917 321 955</li>
+          <li>📞 039 88888 36</li>
+          <li>🌐 camkhetea.com</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-extrabold mb-4">Cần báo giá sỉ?</h3>
+        <div class="flex gap-2 mb-4">
+          <input type="tel" placeholder="Số điện thoại/Zalo" class="w-full rounded-full px-4 py-3 text-[#1F2A1D]">
+          <button class="bg-[#B8863B] px-5 py-3 rounded-full font-bold" aria-label="Gửi nhanh số điện thoại">Gửi</button>
+        </div>
+        <div class="flex gap-3">
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center" aria-label="Facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+          <a href="#contact" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center" aria-label="Zalo"><i data-lucide="message-circle" class="w-5 h-5"></i></a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center" aria-label="Shopee"><i data-lucide="shopping-bag" class="w-5 h-5"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-custom mt-10 pt-6 border-t border-white/10 text-center text-[#D8D2C2]">
+      © 2026 CK Tea - Công ty TNHH Chè Cẩm Khê. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- MOBILE STICKY CTA -->
+  <div class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-[#E2D8C5] shadow-2xl p-3">
+    <div class="grid grid-cols-2 gap-3">
+      <a href="tel:0917321955" class="btn bg-[#B8863B] text-white rounded-full py-3 flex items-center justify-center gap-2 font-extrabold" aria-label="Gọi ngay CK Tea">
+        <i data-lucide="phone" class="w-5 h-5"></i>
+        Gọi ngay
+      </a>
+      <a href="#contact" class="btn btn-primary rounded-full py-3 flex items-center justify-center gap-2 font-extrabold" aria-label="Zalo báo giá CK Tea">
+        <i data-lucide="message-circle" class="w-5 h-5"></i>
+        Zalo báo giá
+      </a>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast fixed top-24 right-4 z-[70] bg-[#2F6B3F] text-white px-5 py-4 rounded-2xl shadow-xl font-bold max-w-sm">
+    Cảm ơn bạn! CK Tea sẽ liên hệ tư vấn trong thời gian sớm nhất.
+  </div>
+
+  <script>
+    // Init Lucide icons
+    lucide.createIcons();
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('nav-scrolled');
+      } else {
+        navbar.classList.remove('nav-scrolled');
+      }
+    });
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Counter animation
+    const counters = document.querySelectorAll('.counter');
+    let counterStarted = false;
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !counterStarted) {
+          counterStarted = true;
+
+          counters.forEach(counter => {
+            const target = parseInt(counter.dataset.target, 10);
+            let current = 0;
+            const duration = 1200;
+            const start = performance.now();
+
+            function updateCounter(now) {
+              const progress = Math.min((now - start) / duration, 1);
+              current = Math.floor(progress * target);
+              counter.textContent = current;
+
+              if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+              } else {
+                counter.textContent = target;
+              }
+            }
+
+            requestAnimationFrame(updateCounter);
+          });
+        }
+      });
+    }, {
+      threshold: 0.4
+    });
+
+    if (counters.length) {
+      counterObserver.observe(counters[0].closest('.grid'));
+    }
+
+    // Form validation
+    const leadForm = document.getElementById('leadForm');
+    const toast = document.getElementById('toast');
+
+    leadForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      let isValid = true;
+
+      const name = document.getElementById('name');
+      const phone = document.getElementById('phone');
+      const productError = document.getElementById('productError');
+      const products = document.querySelectorAll('input[name="product"]:checked');
+
+      leadForm.querySelectorAll('.error').forEach(error => error.classList.add('hidden'));
+      productError.classList.add('hidden');
+
+      if (!name.value.trim()) {
+        name.parentElement.querySelector('.error').classList.remove('hidden');
+        isValid = false;
+      }
+
+      const phoneValue = phone.value.replace(/\s/g, '');
+      const phoneRegex = /^[0-9]{9,11}$/;
+
+      if (!phoneRegex.test(phoneValue)) {
+        phone.parentElement.querySelector('.error').classList.remove('hidden');
+        isValid = false;
+      }
+
+      if (products.length === 0) {
+        productError.classList.remove('hidden');
+        isValid = false;
+      }
+
+      if (!isValid) return;
+
+      toast.classList.add('show');
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+
+      leadForm.reset();
+    });
+  </script>
+</body>
+</html>
